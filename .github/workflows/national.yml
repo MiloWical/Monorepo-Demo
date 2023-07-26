@@ -1,7 +1,7 @@
 name: 'National Service Build'
 run-name: 'National Service Build'
 
-on: [ push ]
+on: [ workflow_dispatch ]
 permissions:
   pull-requests: read
   contents: read
