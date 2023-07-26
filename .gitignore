@@ -355,4 +355,4 @@ test/ResultCs.Tests.Unit/coverage.json
 **/docfx_project/
 
 # VS Code workspace directory
-.vscode/
+# .vscode/
