@@ -1,5 +1,5 @@
-name: 'National Service Build'
-run-name: 'National Service Build'
+name: 'Virginia Service Build'
+run-name: 'Virginia Service Build'
 
 on: [ workflow_dispatch ]
 permissions:
@@ -11,7 +11,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-and-test:
+  build-virginia-service:
     runs-on: ubuntu-latest
 
     steps:
@@ -32,15 +32,16 @@ jobs:
         restore-keys: |
           '${{ runner.os }}-nuget-7.0.x'
 
-    - name: Restore National Service
-      run: dotnet restore ${{ github.workspace }}/src/NationalService/NationalService.csproj
+    - name: Restore Virginia Service
+      run: dotnet restore ${{ github.workspace }}/src/StateService/StateService.csproj
 
-    - name: Build National Service
+    - name: Build Virginia Service
       run: |
         dotnet publish \
-        ${{ github.workspace }}/src/NationalService/NationalService.csproj \
+        ${{ github.workspace }}/src/StateService/StateService.csproj \
         --output ${{ github.workspace }}/_bin \
-        --configuration Release
+        --configuration Release \
+        "--property:States=VA"
 
     - name: View Build Output
       run: ls ${{ github.workspace }}/_bin
