@@ -12,7 +12,18 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\StateComponents\Common\StateComponents.Common.csproj" />
+    <ProjectReference Include="../StateComponents/Common/StateComponents.Common.csproj" />
   </ItemGroup>
 
+  <ItemGroup Condition="$(States.ToUpperInvariant().Contains('VA'))">
+    <ProjectReference Include="../StateComponents/State/VA/StateComponents.VA.csproj" />
+  </ItemGroup>
+
+  <ItemGroup Condition="$(States.ToUpperInvariant().Contains('NC'))">
+    <ProjectReference Include="../StateComponents/State/NC/StateComponents.NC.csproj" />
+  </ItemGroup>
+
+  <ItemGroup Condition="$(States.ToUpperInvariant().Contains('MI'))">
+    <ProjectReference Include="../StateComponents/State/MI/StateComponents.MI.csproj" />
+  </ItemGroup>
 </Project>
